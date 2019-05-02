@@ -6,7 +6,6 @@
       "prettier/react"
    ],
    "rules": {
-      "react/prop-types": "warn",
       "react/require-default-props": "error"
    }
 }
