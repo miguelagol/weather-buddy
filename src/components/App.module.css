@@ -4,69 +4,35 @@
    height: 100vh;
    width: 100vw;
    display: grid;
-   grid-template: 6em 1fr / 1fr;
+   grid-template-rows: 120px 1fr;
    font-size: 20px;
 }
 
 .App-header {
    display: grid;
-   grid-template: 1fr / 300px 1fr auto auto;
-   grid-template-areas: 'title . input button';
+   grid-template-columns: 1fr repeat(2, min-content);
    grid-gap: 20px;
    align-items: center;
 }
 
-#title {
-   grid-area: title;
-   margin: 20px;
+.title {
+   justify-self: flex-start;
+   margin: 0 40px;
 }
 
-.App-header input {
-   justify-self: flex-end;
-}
-
-input {
-   height: 2em;
-   width: 15em;
-   border-radius: 5px;
-   padding: 0 10px;
-   grid-area: input;
-}
-
-button {
-   height: 2em;
-   width: 10em;
-   border-radius: 10px;
-   margin: 0px 15px;
-   grid-area: button;
-   cursor: pointer;
-}
-
-input,
-button {
-   font-size: 0.8em;
-}
 h1,
 h2 {
    color: white;
 }
 
-h1 {
-   margin: 10px 0;
+@media screen and (min-height: 600px) {
+   h1 {
+      font-size: 40px;
+   }
 }
 
-.content {
-   display: grid;
-   grid-template: 150px repeat(3, min-content) / 1fr;
-   grid-template-areas:
-      '. '
-      'enter '
-      'input '
-      'button';
-   grid-gap: 20px;
-   justify-items: center;
-}
-
-h1 {
-   grid-area: enter;
+@media screen and (min-height: 800px) {
+   h1 {
+      font-size: 50px;
+   }
 }

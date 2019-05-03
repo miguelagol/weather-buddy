@@ -1,20 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home.js';
+import Button from './Button.js';
+import Input from './Input.js';
 import css from './App.module.css';
 
 function App() {
    return (
-      <div className={css.App}>
-         <header className={css['App-header']}>
-            <h2 id={css.title}>Weather Buddy</h2>
-            <input />
-            <button>Get Weather</button>
-         </header>
-         <div className={css.content}>
-            <h1>Enter a City</h1>
-            <input />
-            <button>Get Weather</button>
+      <Router>
+         <div className={css.App}>
+            <header className={css['App-header']}>
+               <h2 className={css.title}>Weather Buddy</h2>
+               <Input checkVisibility="true" />
+               <Button checkVisibility="true" text={'Get Weather'} />
+            </header>
+            <Switch>
+               <Route exact path="/" component={Home} />
+               <Route render={() => <p>Not Found</p>} />
+            </Switch>
          </div>
-      </div>
+      </Router>
    );
 }
 
