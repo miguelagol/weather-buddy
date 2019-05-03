@@ -1,0 +1,24 @@
+input {
+   height: 30px;
+   width: 60%;
+   border-radius: 5px;
+   font: 400 18px Amiri;
+   text-align: center;
+}
+
+.visibility {
+   display: none;
+}
+
+/* @media screen and (min-width: 700px) {
+   .visibility {
+      display: block;
+      width: 200px;
+   }
+} */
+
+@media screen and (min-width: 700px) {
+   input {
+      width: 420px;
+   }
+}
