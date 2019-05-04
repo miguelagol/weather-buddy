@@ -1,6 +1,6 @@
 @import '../config.scss';
 
-button {
+.button {
    height: 34px;
    width: 150px;
    border-radius: 17px;
@@ -9,24 +9,11 @@ button {
    font: bold $fontXXS Amiri;
 }
 
-.visibility {
-   display: none;
-}
-
 @media screen and (min-height: 700px) {
-   button {
+   .button {
       height: 42px;
       width: 180px;
       border-radius: 21px;
       font-size: $fontXS;
-   }
-}
-
-@media screen and (min-width: 700px) {
-   .visibility {
-      display: block;
-      width: 145px;
-      height: 38px;
-      font-size: $fontXXS;
    }
 }

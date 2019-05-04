@@ -8,7 +8,7 @@ export default function Home() {
       <div className={css.home}>
          <h2 className={css.title}>Enter a City</h2>
          <Input />
-         <Button className={css.visibility} text={'Get Weather'} />
+         <Button text={'Get Weather'} />
       </div>
    );
 }

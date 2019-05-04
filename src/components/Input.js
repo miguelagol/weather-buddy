@@ -3,21 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import css from './Input.module.scss';
 
-export default function Input({ checkVisibility }) {
-   const classes = classNames.bind(css);
-   const className = classes({
-      input: true,
-      visibility: checkVisibility,
-   });
+const classes = classNames.bind(css);
 
-   return <input className={className} />;
+export default function Input({ className }) {
+   const classNames = classes('input', className);
+
+   return <input className={classNames} />;
 }
 
 Input.propTypes = {
-   checkVisibility: PropTypes.string,
+   className: PropTypes.string,
 };
 
 Input.defaultProps = {
-   text: '',
-   checkVisibility: undefined,
+   className: undefined,
 };

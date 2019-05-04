@@ -11,8 +11,8 @@ export default function App() {
          <div className={css.App}>
             <header className={css['App-header']}>
                <h1 className={css.title}>Weather Buddy</h1>
-               <Input checkVisibility="true" />
-               <Button checkVisibility="true" text={'Get Weather'} />
+               <Input className={css.hiding} />
+               <Button className={css.hiding} text={'Get Weather'} />
             </header>
             <Switch>
                <Route exact path="/" component={Home} />

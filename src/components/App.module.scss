@@ -19,9 +19,8 @@
    margin: 0;
 }
 
-h1,
-h2 {
-   color: white;
+.hiding {
+   display: none;
 }
 
 @media screen and (min-width: 700px) {
@@ -40,6 +39,19 @@ h2 {
 
    .title {
       font-size: $fontM;
+   }
+
+   input.hiding {
+      display: block;
+      height: 26px;
+      width: 160px;
+   }
+
+   button.hiding {
+      display: block;
+      width: 145px;
+      height: 38px;
+      font-size: $fontXXS;
    }
 }
 

@@ -1,6 +1,6 @@
 @import '../config.scss';
 
-input {
+.input {
    height: 30px;
    width: 60%;
    border-radius: 5px;
@@ -8,18 +8,8 @@ input {
    text-align: center;
 }
 
-.visibility {
-   display: none;
-}
-
 @media screen and (min-width: 700px) {
-   input {
+   .input {
       width: 420px;
-   }
-
-   .visibility {
-      display: block;
-      height: 26px;
-      width: 160px;
    }
 }

@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import css from './Button.module.scss';
 
-export default function Button({ text, checkVisibility }) {
-   const classes = classNames.bind(css);
-   const className = classes({
-      button: true,
-      visibility: checkVisibility,
-   });
+const classes = classNames.bind(css);
 
-   return <button className={className}>{text}</button>;
+export default function Button({ text, className }) {
+   const classNames = classes('button', className);
+
+   return <button className={classNames}>{text}</button>;
 }
 
 Button.propTypes = {
    text: PropTypes.string,
-   checkVisibility: PropTypes.string,
+   className: PropTypes.string,
 };
 
 Button.defaultProps = {
    text: 'Submit',
-   checkVisibility: undefined,
+   className: undefined,
 };
