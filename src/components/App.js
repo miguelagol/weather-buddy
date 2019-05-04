@@ -5,7 +5,7 @@ import Button from './Button.js';
 import Input from './Input.js';
 import css from './App.module.css';
 
-function App() {
+export default function App() {
    return (
       <Router>
          <div className={css.App}>
@@ -22,5 +22,3 @@ function App() {
       </Router>
    );
 }
-
-export default App;
