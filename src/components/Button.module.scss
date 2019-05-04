@@ -18,9 +18,7 @@ button {
       height: 42px;
       width: 180px;
       border-radius: 21px;
-      cursor: pointer;
-      background-color: white;
-      font: bold $fontXS Amiri;
+      font-size: $fontXS;
    }
 }
 
@@ -30,6 +28,5 @@ button {
       width: 145px;
       height: 38px;
       font-size: $fontXXS;
-      margin-right: $grid * 3;
    }
 }

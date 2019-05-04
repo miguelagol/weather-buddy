@@ -8,15 +8,14 @@
 }
 
 .title {
-   align-self: flex-end;
    margin: 0;
    font-size: $fontL;
-   line-height: 40px;
+   line-height: 50px;
 }
 
 @media screen and (min-height: 700px) {
    .title {
       font-size: $fontXXL;
-      line-height: 40px;
+      line-height: 70px;
    }
 }
