@@ -11,20 +11,23 @@ button {
    display: none;
 }
 
-@media screen and (min-height: 600px) {
+@media screen and (min-height: 700px) {
    button {
-      height: 45px;
+      height: 42px;
       width: 180px;
       border-radius: 20px;
       cursor: pointer;
       background-color: white;
-      font: bold 23px Amiri;
+      font: bold 22px Lori;
    }
 }
 
-/* @media screen and (min-width: 700px) {
+@media screen and (min-width: 700px) {
    .visibility {
       display: block;
-      width: 200px;
+      width: 145px;
+      height: 38px;
+      font-size: 18px;
+      margin-right: 20px;
    }
-} */
+}

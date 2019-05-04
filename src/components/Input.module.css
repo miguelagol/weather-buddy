@@ -10,15 +10,14 @@ input {
    display: none;
 }
 
-/* @media screen and (min-width: 700px) {
-   .visibility {
-      display: block;
-      width: 200px;
-   }
-} */
-
 @media screen and (min-width: 700px) {
    input {
       width: 420px;
+   }
+
+   .visibility {
+      display: block;
+      height: 26px;
+      width: 160px;
    }
 }
