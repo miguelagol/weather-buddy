@@ -1,8 +1,10 @@
+@import '../config.scss';
+
 input {
    height: 30px;
    width: 60%;
    border-radius: 5px;
-   font: 400 18px Amiri;
+   font: 400 $fontXXS Amiri;
    text-align: center;
 }
 

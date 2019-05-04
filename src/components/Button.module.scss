@@ -1,10 +1,12 @@
+@import '../config.scss';
+
 button {
-   height: 35px;
+   height: 34px;
    width: 150px;
-   border-radius: 18px;
+   border-radius: 17px;
    cursor: pointer;
    background-color: white;
-   font: bold 20px Amiri;
+   font: bold $fontXXS Amiri;
 }
 
 .visibility {
@@ -15,10 +17,10 @@ button {
    button {
       height: 42px;
       width: 180px;
-      border-radius: 20px;
+      border-radius: 21px;
       cursor: pointer;
       background-color: white;
-      font: bold 22px Lori;
+      font: bold $fontXS Amiri;
    }
 }
 
@@ -27,7 +29,7 @@ button {
       display: block;
       width: 145px;
       height: 38px;
-      font-size: 18px;
-      margin-right: 20px;
+      font-size: $fontXXS;
+      margin-right: $grid * 3;
    }
 }

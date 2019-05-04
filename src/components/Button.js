@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import css from './Button.module.css';
+import css from './Button.module.scss';
 
 export default function Button({ text, checkVisibility }) {
    const classes = classNames.bind(css);

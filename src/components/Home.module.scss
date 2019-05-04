@@ -1,3 +1,5 @@
+@import '../config.scss';
+
 .home {
    display: grid;
    grid-template-rows: 1fr min-content 2fr;
@@ -8,5 +10,13 @@
 .title {
    align-self: flex-end;
    margin: 0;
+   font-size: $fontL;
    line-height: 40px;
+}
+
+@media screen and (min-height: 700px) {
+   .title {
+      font-size: $fontXXL;
+      line-height: 40px;
+   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import css from './Input.module.css';
+import css from './Input.module.scss';
 
 export default function Input({ checkVisibility }) {
    const classes = classNames.bind(css);
