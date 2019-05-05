@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'focus-visible';
 import './index.scss';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';

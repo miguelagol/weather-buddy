@@ -10,3 +10,7 @@ h1,
 h2 {
    color: white;
 }
+
+.js-focus-visible :focus:not(.focus-visible) {
+   outline: none;
+}
