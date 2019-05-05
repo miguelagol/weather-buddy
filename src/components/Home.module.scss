@@ -1,0 +1,25 @@
+@import '../config.scss';
+
+.home {
+   display: grid;
+   grid-gap: $grid * 3;
+   justify-items: center;
+   padding: 0 $grid * 4 100px $grid * 4;
+}
+
+.title {
+   margin: 0;
+   font-size: $font-l;
+   line-height: 50px;
+}
+
+.responsive-width {
+   max-width: 420px;
+}
+
+@media screen and (min-width: 720px) {
+   .title {
+      font-size: $font-xl;
+      line-height: 60px;
+   }
+}

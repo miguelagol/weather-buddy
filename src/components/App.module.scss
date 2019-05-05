@@ -1,0 +1,45 @@
+@import '../config.scss';
+
+.App {
+   background: linear-gradient(to bottom right, #d47199, #270a86);
+   min-height: 100vh;
+   width: 100vw;
+   display: grid;
+   grid-template-rows: 70px 1fr;
+   align-items: center;
+   font-size: $font-xs;
+}
+
+.App-header {
+   margin: 0 $grid * 4;
+}
+
+.title {
+   font-size: $font-s;
+   margin: 0;
+}
+
+.header-form {
+   display: none;
+}
+
+@media screen and (min-width: 720px) {
+   .App {
+      grid-template-rows: 91px 1fr;
+      font-size: $font-m;
+   }
+
+   .App-header {
+      display: grid;
+      grid-template-columns: 1fr min-content;
+      grid-gap: $grid * 3;
+      align-items: center;
+      margin: 0 $grid * 5;
+   }
+
+   .header-form {
+      display: grid;
+      grid-template-columns: 200px max-content;
+      grid-gap: $grid * 3;
+   }
+}
