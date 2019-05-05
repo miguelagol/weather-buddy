@@ -1,25 +1,19 @@
 @import '../config.scss';
 
 .button {
-   height: 34px;
-   width: 150px;
-   border-radius: 17px;
+   width: 145px;
+   height: 38px;
+   border-radius: 19px;
    cursor: pointer;
    background-color: white;
-   font: bold $fontXXS Amiri;
+   font: bold $font-XXS Open Sans;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 500px) {
    .button {
-      height: 42px;
-      width: 180px;
-      border-radius: 21px;
-      font-size: $fontXS;
-   }
-
-   .header {
-      width: 145px;
-      height: 38px;
-      font-size: $fontXXS;
+      height: 50px;
+      width: 200px;
+      border-radius: 25px;
+      font-size: $font-XS;
    }
 }

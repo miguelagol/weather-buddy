@@ -2,27 +2,35 @@
 
 .home {
    display: grid;
-   grid-template-rows: 1fr min-content 2fr;
    grid-gap: $grid * 3;
    justify-items: center;
+   padding-bottom: 100px;
 }
 
 .title {
    margin: 0;
-   font-size: $fontL;
+   font-size: $font-L;
    line-height: 50px;
+}
+
+.responsive-width {
+   width: 60%;
 }
 
 @media screen and (min-width: 500px) {
    .title {
-      font-size: $fontXL;
+      font-size: $font-XL;
       line-height: 60px;
    }
 }
 
 @media screen and (min-width: 700px) {
    .title {
-      font-size: $fontXXL;
+      font-size: $font-XXL;
       line-height: 70px;
+   }
+
+   .responsive-width {
+      width: 420px;
    }
 }

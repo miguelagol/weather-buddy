@@ -2,19 +2,8 @@
 
 .input {
    height: 30px;
-   width: 60%;
+   width: 100%;
    border-radius: 5px;
-   font: 400 $fontXXS Amiri;
+   font: 400 $font-XXS Open Sans;
    text-align: center;
-}
-
-@media screen and (min-width: 700px) {
-   .input {
-      width: 420px;
-   }
-
-   .header {
-      height: 26px;
-      width: 160px;
-   }
 }

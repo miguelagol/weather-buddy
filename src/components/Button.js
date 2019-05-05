@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import cln from 'classnames/bind';
 import css from './Button.module.scss';
 
-const classes = classNames.bind(css);
+const classes = cln.bind(css);
 
-export default function Button({ text, className }) {
+export default function Button({ className, type, children, ...rest }) {
    const classNames = classes('button', className);
 
-   return <button className={classNames}>{text}</button>;
+   return (
+      <button className={classNames} type={type} {...rest}>
+         {children}
+      </button>
+   );
 }
 
 Button.propTypes = {
-   text: PropTypes.string,
    className: PropTypes.string,
+   type: PropTypes.string.isRequired,
+   children: PropTypes.node.isRequired,
 };
 
 Button.defaultProps = {
-   text: 'Submit',
    className: undefined,
 };

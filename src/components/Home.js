@@ -7,8 +7,8 @@ export default function Home() {
    return (
       <div className={css.home}>
          <h2 className={css.title}>Enter a City</h2>
-         <Input />
-         <Button text={'Get Weather'} />
+         <Input className={css['responsive-width']} />
+         <Button type="submit">Get Weather</Button>
       </div>
    );
 }

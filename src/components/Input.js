@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import cln from 'classnames/bind';
 import css from './Input.module.scss';
 
-const classes = classNames.bind(css);
+const classes = cln.bind(css);
 
-export default function Input({ className }) {
+export default function Input({ className, ...rest }) {
    const classNames = classes('input', className);
 
-   return <input className={classNames} />;
+   return <input className={classNames} {...rest} />;
 }
 
 Input.propTypes = {
