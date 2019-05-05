@@ -7,7 +7,7 @@
    display: grid;
    grid-template-rows: 70px 1fr;
    align-items: center;
-   font-size: $fontXS;
+   font-size: $fontXXS;
 }
 
 .App-header {
@@ -15,54 +15,36 @@
 }
 
 .title {
-   font-size: $fontS;
+   font-size: $fontXS;
    margin: 0;
 }
 
-.hiding {
-   display: none;
+@media screen and (min-width: 500px) {
+   .App {
+      grid-template-rows: 85px 1fr;
+   }
+   .title {
+      font-size: $fontS;
+   }
 }
 
 @media screen and (min-width: 700px) {
    .App {
-      grid-template-rows: 120px 1fr;
+      grid-template-rows: 100px 1fr;
       font-size: $fontS;
    }
 
    .App-header {
       display: grid;
-      grid-template-columns: 1fr repeat(2, min-content);
+      grid-template-columns: 1fr min-content;
       grid-gap: $grid * 3;
       align-items: center;
       margin: 0 $grid * 4;
    }
+}
 
+@media screen and (min-width: 900px) {
    .title {
       font-size: $fontM;
-   }
-
-   input.hiding {
-      display: block;
-      height: 26px;
-      width: 160px;
-   }
-
-   button.hiding {
-      display: block;
-      width: 145px;
-      height: 38px;
-      font-size: $fontXXS;
-   }
-}
-
-@media screen and (min-height: 700px) {
-   h1 {
-      font-size: $fontL;
-   }
-}
-
-@media screen and (min-height: 800px) {
-   h1 {
-      font-size: $fontXL;
    }
 }

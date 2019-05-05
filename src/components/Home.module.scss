@@ -3,7 +3,7 @@
 .home {
    display: grid;
    grid-template-rows: 1fr min-content 2fr;
-   grid-gap: 20px;
+   grid-gap: $grid * 3;
    justify-items: center;
 }
 
@@ -13,7 +13,14 @@
    line-height: 50px;
 }
 
-@media screen and (min-height: 700px) {
+@media screen and (min-width: 500px) {
+   .title {
+      font-size: $fontXL;
+      line-height: 60px;
+   }
+}
+
+@media screen and (min-width: 700px) {
    .title {
       font-size: $fontXXL;
       line-height: 70px;

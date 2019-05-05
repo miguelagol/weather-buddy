@@ -9,11 +9,17 @@
    font: bold $fontXXS Amiri;
 }
 
-@media screen and (min-height: 700px) {
+@media screen and (min-width: 700px) {
    .button {
       height: 42px;
       width: 180px;
       border-radius: 21px;
       font-size: $fontXS;
+   }
+
+   .header {
+      width: 145px;
+      height: 38px;
+      font-size: $fontXXS;
    }
 }

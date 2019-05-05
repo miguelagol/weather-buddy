@@ -1,0 +1,13 @@
+@import '../config.scss';
+
+.header-forms {
+   display: none;
+}
+
+@media screen and (min-width: 700px) {
+   .header-forms {
+      display: grid;
+      grid-template-columns: repeat(2, min-content);
+      grid-gap: $grid * 3;
+   }
+}
