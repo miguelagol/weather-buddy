@@ -7,7 +7,7 @@
    display: grid;
    grid-template-rows: 70px 1fr;
    align-items: center;
-   font-size: $fontXXS;
+   font-size: $font-XXS;
 }
 
 .App-header {
@@ -15,8 +15,12 @@
 }
 
 .title {
-   font-size: $fontXS;
+   font-size: $font-XS;
    margin: 0;
+}
+
+.header-form {
+   display: none;
 }
 
 @media screen and (min-width: 500px) {
@@ -24,14 +28,14 @@
       grid-template-rows: 85px 1fr;
    }
    .title {
-      font-size: $fontS;
+      font-size: $font-S;
    }
 }
 
 @media screen and (min-width: 700px) {
    .App {
       grid-template-rows: 100px 1fr;
-      font-size: $fontS;
+      font-size: $font-S;
    }
 
    .App-header {
@@ -41,10 +45,27 @@
       align-items: center;
       margin: 0 $grid * 4;
    }
+
+   .header-form {
+      display: grid;
+      grid-template-columns: repeat(2, min-content);
+      grid-gap: $grid * 3;
+   }
+
+   .header-button {
+      width: 145px;
+      height: 38px;
+      font-size: $font-XXS;
+   }
+
+   .header-input {
+      height: 26px;
+      width: 160px;
+   }
 }
 
 @media screen and (min-width: 900px) {
    .title {
-      font-size: $fontM;
+      font-size: $font-M;
    }
 }
