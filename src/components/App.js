@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Home from './Home.js';
 import Button from './Button';
 import Input from './Input';
@@ -29,18 +28,8 @@ export default function App() {
 function CityForm() {
    return (
       <div className={css['header-form']}>
-         <Input className={css['header-input']} />
-         <Button className={css['header-button']} type="submit">
-            Get Weather
-         </Button>
+         <Input variant="small" />
+         <Button type="button">Get Weather</Button>
       </div>
    );
 }
-
-CityForm.propTypes = {
-   buttonText: PropTypes.string,
-};
-
-CityForm.defaultProps = {
-   buttonText: undefined,
-};

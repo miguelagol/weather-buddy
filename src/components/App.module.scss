@@ -7,15 +7,15 @@
    display: grid;
    grid-template-rows: 70px 1fr;
    align-items: center;
-   font-size: $font-XXS;
+   font-size: $font-xs;
 }
 
 .App-header {
-   margin: 0 $grid * 3;
+   margin: 0 $grid * 4;
 }
 
 .title {
-   font-size: $font-XS;
+   font-size: $font-s;
    margin: 0;
 }
 
@@ -23,19 +23,10 @@
    display: none;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 720px) {
    .App {
-      grid-template-rows: 85px 1fr;
-   }
-   .title {
-      font-size: $font-S;
-   }
-}
-
-@media screen and (min-width: 700px) {
-   .App {
-      grid-template-rows: 100px 1fr;
-      font-size: $font-S;
+      grid-template-rows: 91px 1fr;
+      font-size: $font-m;
    }
 
    .App-header {
@@ -43,29 +34,12 @@
       grid-template-columns: 1fr min-content;
       grid-gap: $grid * 3;
       align-items: center;
-      margin: 0 $grid * 4;
+      margin: 0 $grid * 5;
    }
 
    .header-form {
       display: grid;
-      grid-template-columns: repeat(2, min-content);
+      grid-template-columns: min-content max-content;
       grid-gap: $grid * 3;
-   }
-
-   .header-button {
-      width: 145px;
-      height: 38px;
-      font-size: $font-XXS;
-   }
-
-   .header-input {
-      height: 26px;
-      width: 160px;
-   }
-}
-
-@media screen and (min-width: 900px) {
-   .title {
-      font-size: $font-M;
    }
 }

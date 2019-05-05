@@ -1,9 +1,20 @@
 @import '../config.scss';
 
 .input {
-   height: 30px;
+   height: 24px;
    width: 100%;
+   border: 0;
    border-radius: 5px;
-   font: 400 $font-XXS Open Sans;
+   font: 400 $font-xs Open Sans;
    text-align: center;
+   padding: 0;
+}
+
+.input--small {
+   height: 34px;
+   width: 200px;
+}
+
+.input--big {
+   height: 44px;
 }
