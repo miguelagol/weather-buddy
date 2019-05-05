@@ -13,7 +13,7 @@ export default function Button({
    ...rest
 }) {
    const classNames = classes('button', className, {
-      [css[`button--${variant}`]]: variant,
+      [`button--${variant}`]: variant,
    });
 
    return (

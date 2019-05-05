@@ -7,7 +7,7 @@ const classes = cln.bind(css);
 
 export default function Input({ className, variant, ...rest }) {
    const classNames = classes('input', className, {
-      [css[`input--${variant}`]]: variant,
+      [`input--${variant}`]: variant,
    });
 
    return <input className={classNames} {...rest} />;
