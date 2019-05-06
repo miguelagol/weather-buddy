@@ -7,25 +7,44 @@ import css from './Home.module.scss';
 export default class Home extends React.Component {
    state = {
       toForecast: false,
+      city: '',
    };
 
    handleClick = () => {
       this.setState({ toForecast: true });
    };
 
-   render() {
-      const { toForecast } = this.state;
+   handleChangeCity = event => {
+      const introducedCity = event.target.value;
+      this.setState({ city: introducedCity });
+   };
 
-      if (toForecast === true) {
-         return <Redirect to="/forecast" />;
+   render() {
+      const { toForecast, city } = this.state;
+
+      if (toForecast) {
+         return (
+            <Redirect
+               to={{
+                  pathname: '/forecast',
+                  search: `?city=${city}`,
+               }}
+            />
+         );
       }
       return (
          <div className={css.home}>
             <h2 className={css.title}>Enter a City</h2>
-            <Input className={css['responsive-width']} variant="big" />
-            <Button type="button" variant="big" onClick={this.handleClick}>
-               Get Weather
-            </Button>
+            <form onSubmit={this.handleSubmit}>
+               <Input
+                  className={css['responsive-width']}
+                  variant="big"
+                  onChange={this.handleChangeCity}
+               />
+               <Button type="button" variant="big" onClick={this.handleClick}>
+                  Get Weather
+               </Button>
+            </form>
          </div>
       );
    }
