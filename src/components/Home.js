@@ -1,17 +1,25 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from './Button.js';
 import Input from './Input.js';
 import css from './Home.module.scss';
 
 export default class Home extends React.Component {
    state = {
-      switchToForecast: false,
       city: '',
    };
 
+   static propTypes = {
+      history: PropTypes.object.isRequired,
+   };
+
    handleClick = () => {
-      this.setState({ switchToForecast: true });
+      const { history } = this.props;
+      const { city } = this.state;
+      history.push({
+         pathname: '/forecast',
+         search: `?city=${city}`,
+      });
    };
 
    handleChangeCity = event => {
@@ -20,18 +28,6 @@ export default class Home extends React.Component {
    };
 
    render() {
-      const { switchToForecast, city } = this.state;
-
-      if (switchToForecast) {
-         return (
-            <Redirect
-               to={{
-                  pathname: '/forecast',
-                  search: `?city=${city}`,
-               }}
-            />
-         );
-      }
       return (
          <div className={css.home}>
             <h2 className={css.title}>Enter a City</h2>
