@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home.js';
-import Forecast from './Forecast.js';
-import Button from './Button';
-import Input from './Input';
+import Home from '../Home';
+import Forecast from '../Forecast';
+import Button from '../Button';
+import Input from '../Input';
 import css from './App.module.scss';
 
 export default function App() {

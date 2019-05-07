@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button.js';
-import Input from './Input.js';
+import Button from '../Button';
+import Input from '../Input';
 import css from './Home.module.scss';
 
 export default class Home extends React.Component {

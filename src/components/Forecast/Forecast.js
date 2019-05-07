@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getWeekDayAndTemperature from '../utils/api';
+import getWeekDayAndTemperature from '../../utils/api';
 import css from './Forecast.module.scss';
 
 export default class Forecast extends React.Component {
