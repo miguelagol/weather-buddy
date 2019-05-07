@@ -1,5 +1,4 @@
 import React from 'react';
-import queryString from 'query-string';
 import PropTypes from 'prop-types';
 import getWeekDayAndTemperature from '../utils/api';
 import css from './Forecast.module.css';
@@ -15,10 +14,12 @@ export default class Forecast extends React.Component {
    };
 
    async componentDidMount() {
-      const { city } = queryString.parse(this.props.location.search);
+      const paramsString = this.props.location.search;
 
-      const Data = await getWeekDayAndTemperature(city);
-      const { day, temperature } = Data;
+      const searchParams = new URLSearchParams(paramsString);
+      const city = searchParams.get('city');
+
+      const { day, temperature } = await getWeekDayAndTemperature(city);
 
       this.setState({
          day,
