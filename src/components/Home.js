@@ -35,16 +35,14 @@ export default class Home extends React.Component {
       return (
          <div className={css.home}>
             <h2 className={css.title}>Enter a City</h2>
-            <form onSubmit={this.handleSubmit}>
-               <Input
-                  className={css['responsive-width']}
-                  variant="big"
-                  onChange={this.handleChangeCity}
-               />
-               <Button type="button" variant="big" onClick={this.handleClick}>
-                  Get Weather
-               </Button>
-            </form>
+            <Input
+               className={css['responsive-width']}
+               variant="big"
+               onChange={this.handleChangeCity}
+            />
+            <Button type="button" variant="big" onClick={this.handleClick}>
+               Get Weather
+            </Button>
          </div>
       );
    }
