@@ -6,12 +6,12 @@ import css from './Home.module.scss';
 
 export default class Home extends React.Component {
    state = {
-      toForecast: false,
+      switchToForecast: false,
       city: '',
    };
 
    handleClick = () => {
-      this.setState({ toForecast: true });
+      this.setState({ switchToForecast: true });
    };
 
    handleChangeCity = event => {
@@ -20,9 +20,9 @@ export default class Home extends React.Component {
    };
 
    render() {
-      const { toForecast, city } = this.state;
+      const { switchToForecast, city } = this.state;
 
-      if (toForecast) {
+      if (switchToForecast) {
          return (
             <Redirect
                to={{
