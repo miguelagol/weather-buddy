@@ -9,20 +9,39 @@ async function fetchWeatherData(city) {
 }
 
 export default async function getWeekDayAndTemperature(city) {
-   const WeatherData = await fetchWeatherData(city);
-   const temperature = await WeatherData.list[0].main.temp;
-   const timestamp = await WeatherData.list[0].dt;
+   const fetchData = await fetchWeatherData(city);
 
-   const days = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-   ];
-   const date = new Date(timestamp);
-   const day = days[date.getDay()];
-   return { temperature, day };
+   const list = fetchData.list;
+   const listArray = Array.from(list);
+
+   const weatherData = {};
+
+   for (let i = 0; i < 5; i++) {
+      weatherData[`day${i}`] = getWeekDay(listArray[i * 8].dt_txt);
+      weatherData[`temperature${i}`] = roundTemperature(
+         listArray[i * 8].main.temp
+      );
+   }
+
+   function roundTemperature(temp) {
+      return Math.round(temp);
+   }
+
+   function getWeekDay(dateString) {
+      const days = [
+         'Sunday',
+         'Monday',
+         'Tuesday',
+         'Wednesday',
+         'Thursday',
+         'Friday',
+         'Saturday',
+      ];
+
+      let date = new Date(dateString);
+
+      return days[date.getDay()];
+   }
+
+   return weatherData;
 }
