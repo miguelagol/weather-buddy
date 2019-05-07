@@ -6,6 +6,10 @@
    grid-gap: $grid * 3;
    justify-content: center;
    color: white;
+
+   h2 {
+      font-size: $font-m;
+   }
 }
 
 .day {

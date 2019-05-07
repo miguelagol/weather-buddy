@@ -5,6 +5,7 @@ import css from './Forecast.module.scss';
 
 export default class Forecast extends React.Component {
    state = {
+      city: '',
       day0: '',
       day1: '',
       day2: '',
@@ -43,6 +44,7 @@ export default class Forecast extends React.Component {
       } = data;
 
       this.setState({
+         city,
          day0,
          day1,
          day2,
@@ -58,6 +60,7 @@ export default class Forecast extends React.Component {
 
    render() {
       const {
+         city,
          day0,
          day1,
          day2,
@@ -72,6 +75,7 @@ export default class Forecast extends React.Component {
 
       return (
          <div className={css['forecast-container']}>
+            <h2>{city}</h2>
             <Day day={day0} temperature={temperature0} />
             <Day day={day1} temperature={temperature1} />
             <Day day={day2} temperature={temperature2} />
@@ -92,7 +96,7 @@ class Day extends React.Component {
       const { day, temperature } = this.props;
       return (
          <div className={css.day}>
-            <div>{day}</div>
+            <h3>{day}</h3>
             <div>{temperature}&deg;C</div>
          </div>
       );
