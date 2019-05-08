@@ -34,33 +34,9 @@ export default class Forecast extends React.Component {
          <div className={css['forecast-container']}>
             <h2>{city}</h2>
             <div className={css['days-container']}>
-               {weather.map(
-                  (
-                     {
-                        day,
-                        date,
-                        time,
-                        temperature,
-                        temperatureMin,
-                        temperatureMax,
-                        weatherDescription,
-                        weatherIcon,
-                     },
-                     index
-                  ) => (
-                     <Day
-                        key={index}
-                        day={day}
-                        date={date}
-                        time={time}
-                        temp={temperature}
-                        tempMin={temperatureMin}
-                        tempMax={temperatureMax}
-                        weatherDesc={weatherDescription}
-                        icon={weatherIcon}
-                     />
-                  )
-               )}
+               {weather.map(({ ...rest }, index) => (
+                  <Day key={index} {...rest} />
+               ))}
             </div>
          </div>
       );
@@ -72,11 +48,9 @@ class Day extends React.Component {
       day: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       time: PropTypes.string.isRequired,
-      temp: PropTypes.number.isRequired,
-      tempMin: PropTypes.number.isRequired,
-      tempMax: PropTypes.number.isRequired,
-      weatherDesc: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
+      temperature: PropTypes.number.isRequired,
+      weatherDescription: PropTypes.string.isRequired,
+      weatherIcon: PropTypes.string.isRequired,
    };
 
    render() {
@@ -84,11 +58,9 @@ class Day extends React.Component {
          day,
          date,
          time,
-         temp,
-         tempMin,
-         tempMax,
-         weatherDesc,
-         icon,
+         temperature,
+         weatherDescription,
+         weatherIcon,
       } = this.props;
 
       return (
@@ -97,15 +69,11 @@ class Day extends React.Component {
                {day} {date}
             </h3>
             <h2 className={css.time}>{time}</h2>
+            <div>Temp. : {temperature}&deg;C</div>
             <div>
-               <div>Temp. : {temp}&deg;C</div>
-               <div>Temp. Min: {tempMin}&deg;C</div>
-               <div>Temp. Max: {tempMax}&deg;C</div>
-            </div>
-            <div>
-               {weatherDesc}
+               {weatherDescription}
                <img
-                  src={`http://openweathermap.org/img/w/${icon}.png`}
+                  src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
                   alt="Weather icon"
                />
             </div>
