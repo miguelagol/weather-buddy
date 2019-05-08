@@ -1,3 +1,5 @@
+import forecastDataMapper from './forecastDataMapper';
+
 const APIID = '13dbfdfa1e16db2e69a04c4207524f42';
 
 async function fetchWeatherData(city) {
@@ -11,37 +13,7 @@ async function fetchWeatherData(city) {
 export default async function getWeekDayAndTemperature(city) {
    const fetchData = await fetchWeatherData(city);
 
-   const list = fetchData.list;
-   const listArray = Array.from(list);
-
-   const weatherData = {};
-
-   for (let i = 0; i < 5; i++) {
-      weatherData[`day${i}`] = getWeekDay(listArray[i * 8].dt_txt);
-      weatherData[`temperature${i}`] = roundTemperature(
-         listArray[i * 8].main.temp
-      );
-   }
-
-   function roundTemperature(temp) {
-      return Math.round(temp);
-   }
-
-   function getWeekDay(dateString) {
-      const days = [
-         'Sunday',
-         'Monday',
-         'Tuesday',
-         'Wednesday',
-         'Thursday',
-         'Friday',
-         'Saturday',
-      ];
-
-      let date = new Date(dateString);
-
-      return days[date.getDay()];
-   }
+   const weatherData = forecastDataMapper(fetchData);
 
    return weatherData;
 }
