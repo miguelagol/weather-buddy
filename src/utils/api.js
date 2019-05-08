@@ -10,7 +10,7 @@ async function fetchWeatherData(city) {
    return await fetchWeather.json();
 }
 
-export default async function getWeekDayAndTemperature(city) {
+export default async function getWeatherData(city) {
    const fetchData = await fetchWeatherData(city);
 
    const weatherData = forecastDataMapper(fetchData);
