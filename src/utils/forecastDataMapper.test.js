@@ -68,8 +68,23 @@ test('correctly maps forecast data to expected structure', () => {
       },
    };
 
-   const expected = {
-      day: 'test',
-   };
+   const expected = [
+      {
+         day: 'Sunday',
+         temperature: 279,
+         temperatureMin: 278,
+         temperatureMax: 279,
+         weatherDescription: 'light rain',
+         weatherIcon: '10n',
+      },
+      {
+         day: 'Monday',
+         temperature: 279,
+         temperatureMin: 278,
+         temperatureMax: 279,
+         weatherDescription: 'overcast clouds',
+         weatherIcon: '04n',
+      },
+   ];
    expect(forecastDataMapper(initialData)).toStrictEqual(expected);
 });
