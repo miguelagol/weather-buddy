@@ -71,6 +71,8 @@ test('correctly maps forecast data to expected structure', () => {
    const expected = [
       {
          day: 'Sunday',
+         date: '05.05',
+         time: '21:00',
          temperature: 279,
          temperatureMin: 278,
          temperatureMax: 279,
@@ -79,6 +81,8 @@ test('correctly maps forecast data to expected structure', () => {
       },
       {
          day: 'Monday',
+         date: '06.05',
+         time: '00:00',
          temperature: 279,
          temperatureMin: 278,
          temperatureMax: 279,
