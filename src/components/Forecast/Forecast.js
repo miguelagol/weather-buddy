@@ -6,16 +6,7 @@ import css from './Forecast.module.scss';
 export default class Forecast extends React.Component {
    state = {
       city: '',
-      day0: '',
-      day1: '',
-      day2: '',
-      day3: '',
-      day4: '',
-      temperature0: 0,
-      temperature1: 0,
-      temperature2: 0,
-      temperature3: 0,
-      temperature4: 0,
+      weather: [],
    };
 
    static propTypes = {
@@ -30,57 +21,27 @@ export default class Forecast extends React.Component {
 
       const data = await getWeekDayAndTemperature(city);
 
-      const {
-         day0,
-         day1,
-         day2,
-         day3,
-         day4,
-         temperature0,
-         temperature1,
-         temperature2,
-         temperature3,
-         temperature4,
-      } = data;
-
       this.setState({
-         city,
-         day0,
-         day1,
-         day2,
-         day3,
-         day4,
-         temperature0,
-         temperature1,
-         temperature2,
-         temperature3,
-         temperature4,
+         weather: data,
       });
    }
 
    render() {
-      const {
-         city,
-         day0,
-         day1,
-         day2,
-         day3,
-         day4,
-         temperature0,
-         temperature1,
-         temperature2,
-         temperature3,
-         temperature4,
-      } = this.state;
+      const { city, weather } = this.state;
 
       return (
          <div className={css['forecast-container']}>
             <h2>{city}</h2>
-            <Day day={day0} temperature={temperature0} />
-            <Day day={day1} temperature={temperature1} />
-            <Day day={day2} temperature={temperature2} />
-            <Day day={day3} temperature={temperature3} />
-            <Day day={day4} temperature={temperature4} />
+            <div>
+               {weather.map((day, index) => (
+                  <Day
+                     key={index}
+                     day={day.day}
+                     temperature={day.temperature}
+                     icon={day.weatherIcon}
+                  />
+               ))}
+            </div>
          </div>
       );
    }
@@ -90,14 +51,19 @@ class Day extends React.Component {
    static propTypes = {
       day: PropTypes.string.isRequired,
       temperature: PropTypes.number.isRequired,
+      icon: PropTypes.string.isRequired,
    };
 
    render() {
-      const { day, temperature } = this.props;
+      const { day, temperature, icon } = this.props;
       return (
          <div className={css.day}>
             <h3>{day}</h3>
             <div>{temperature}&deg;C</div>
+            <img
+               src={`http://openweathermap.org/img/w/${icon}.png`}
+               alt="Weather icon"
+            />
          </div>
       );
    }
