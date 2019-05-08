@@ -1,10 +1,11 @@
 import forecastDataMapper from './forecastDataMapper';
-
-const APIID = '13dbfdfa1e16db2e69a04c4207524f42';
+import config from '../config/config';
 
 async function fetchWeatherData(city) {
+   const { apiID, baseURL } = config;
+
    const fetchWeather = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${APIID}&units=metric&lang={pl}`
+      `${baseURL}/forecast?q=${city}&APPID=${apiID}&units=metric&lang={pl}`
    );
 
    return await fetchWeather.json();
