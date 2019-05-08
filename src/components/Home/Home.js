@@ -32,7 +32,7 @@ export default class Home extends React.Component {
          <div className={css.home}>
             <h2 className={css.title}>Enter a City</h2>
             <Input
-               className={css['responsive-width']}
+               className={css['home-input']}
                variant="big"
                onChange={this.handleChangeCity}
             />
