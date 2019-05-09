@@ -31,6 +31,20 @@ export default class Forecast extends React.Component {
       });
    }
 
+   async componentDidUpdate(prevProps) {
+      const newCity = searchParams(this.props.location);
+      const prevCity = searchParams(prevProps.location);
+
+      if (prevCity !== newCity) {
+         const weatherData = await getWeatherData(newCity);
+
+         this.setState({
+            city: newCity,
+            weather: weatherData,
+         });
+      }
+   }
+
    render() {
       const { city, weather } = this.state;
 
