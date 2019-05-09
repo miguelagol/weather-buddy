@@ -23,8 +23,8 @@ export default class Home extends React.Component {
    };
 
    handleChangeCity = event => {
-      const introducedCity = event.target.value;
-      this.setState({ city: introducedCity });
+      const city = event.target.value;
+      this.setState({ city });
    };
 
    render() {
