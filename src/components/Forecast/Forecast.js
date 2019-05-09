@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import getWeatherData from '../../utils/api';
 import css from './Forecast.module.scss';
 
+function searchParams(location) {
+   const paramsString = location.search;
+
+   const searchParams = new URLSearchParams(paramsString);
+   return searchParams.get('city');
+}
+
 export default class Forecast extends React.Component {
    state = {
       city: '',
@@ -14,10 +21,7 @@ export default class Forecast extends React.Component {
    };
 
    async componentDidMount() {
-      const paramsString = this.props.location.search;
-
-      const searchParams = new URLSearchParams(paramsString);
-      const city = searchParams.get('city');
+      const city = searchParams(this.props.location);
 
       const weatherData = await getWeatherData(city);
 
