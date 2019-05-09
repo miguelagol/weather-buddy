@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Home from '../Home';
 import Forecast from '../Forecast';
@@ -12,7 +12,10 @@ export default function App() {
       <Router>
          <div className={css.App}>
             <header className={css['App-header']}>
-               <h1 className={css.title}>Weather Buddy</h1>
+               <Link className={css.title} to={'/'}>
+                  Weather Buddy
+               </Link>
+
                <Switch>
                   <Route exact path="/" render={() => {}} />
                   <Route component={CityForm} />
