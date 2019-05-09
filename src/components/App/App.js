@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Home from '../Home';
 import Forecast from '../Forecast';
 import Button from '../Button';
@@ -27,11 +28,37 @@ export default function App() {
    );
 }
 
-function CityForm() {
-   return (
-      <div className={css['header-form']}>
-         <Input variant="small" />
-         <Button type="button">Get Weather</Button>
-      </div>
-   );
+class CityForm extends React.Component {
+   state = {
+      city: '',
+   };
+
+   static propTypes = {
+      history: PropTypes.object.isRequired,
+   };
+
+   handleInputChange = event => {
+      const city = event.target.value;
+      this.setState({ city });
+   };
+
+   handleClick = () => {
+      const { history } = this.props;
+      const { city } = this.state;
+      history.push({
+         pathname: '/forecast',
+         search: `?city=${city}`,
+      });
+   };
+
+   render() {
+      return (
+         <div className={css['header-form']}>
+            <Input variant="small" onChange={this.handleInputChange} />
+            <Button type="button" onClick={this.handleClick}>
+               Get Weather
+            </Button>
+         </div>
+      );
+   }
 }
