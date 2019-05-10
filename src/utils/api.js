@@ -14,7 +14,5 @@ async function fetchWeatherData(city) {
 export default async function getWeatherData(city) {
    const fetchData = await fetchWeatherData(city);
 
-   const weatherData = forecastDataMapper(fetchData);
-
-   return weatherData;
+   return forecastDataMapper(fetchData);
 }
