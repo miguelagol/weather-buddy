@@ -2,9 +2,6 @@ import forecastDataMapper from './forecastDataMapper';
 
 test('correctly maps forecast data to expected structure', () => {
    const initialData = {
-      cod: '200',
-      message: 0.009,
-      cnt: 40,
       list: [
          {
             dt: 1557090000,
@@ -59,13 +56,6 @@ test('correctly maps forecast data to expected structure', () => {
             dt_txt: '2019-05-06 00:00:00',
          },
       ],
-      city: {
-         id: 3094802,
-         name: 'Krakow',
-         coord: { lat: 50.0619, lon: 19.9369 },
-         country: 'PL',
-         population: 755050,
-      },
    };
 
    const expected = [
