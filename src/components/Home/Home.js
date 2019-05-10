@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withCityInputHandling from '../withCityInputHandling';
+import CityInputHandler from '../CityInputHandler';
 import Button from '../Button';
 import Input from '../Input';
 import css from './Home.module.scss';
 
 export default function Home({ history }) {
-   const CityFormHome = withCityInputHandling(CityForm);
-
    return (
       <div className={css.home}>
          <h2 className={css.title}>Enter a City</h2>
-         <CityFormHome history={history} />
+         <CityInputHandler history={history}>
+            {(handleChangeCity, handleClick) => (
+               <CityForm
+                  handleChangeCity={handleChangeCity}
+                  handleClick={handleClick}
+               />
+            )}
+         </CityInputHandler>
       </div>
    );
 }

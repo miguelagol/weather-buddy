@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import withCityInputHandling from '../withCityInputHandling';
+import CityInputHandler from '../CityInputHandler';
 import Home from '../Home';
 import Forecast from '../Forecast';
 import Button from '../Button';
@@ -19,7 +19,7 @@ export default function App() {
 
                <Switch>
                   <Route exact path="/" render={() => {}} />
-                  <Route component={withCityInputHandling(CityForm)} />
+                  <Route component={CityForm} />
                </Switch>
             </header>
             <Switch>
@@ -32,18 +32,21 @@ export default function App() {
    );
 }
 
-function CityForm({ handleChangeCity, handleClick }) {
+function CityForm({ history }) {
    return (
-      <div className={css['header-form']}>
-         <Input variant="small" onChange={handleChangeCity} />
-         <Button type="button" onClick={handleClick}>
-            Get Weather
-         </Button>
-      </div>
+      <CityInputHandler history={history}>
+         {(handleChangeCity, handleClick) => (
+            <div className={css['header-form']}>
+               <Input variant="small" onChange={handleChangeCity} />
+               <Button type="button" onClick={handleClick}>
+                  Get Weather
+               </Button>
+            </div>
+         )}
+      </CityInputHandler>
    );
 }
 
 CityForm.propTypes = {
-   handleChangeCity: PropTypes.func.isRequired,
-   handleClick: PropTypes.func.isRequired,
+   history: PropTypes.object.isRequired,
 };
