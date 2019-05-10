@@ -18,9 +18,9 @@ function getTime(date) {
 }
 
 export default function forecastDataMapper(fetchData) {
-   const listArray = fetchData.list;
+   const { list = [] } = fetchData;
 
-   return listArray.map(({ dt_txt, main, weather }) => {
+   return list.map(({ dt_txt, main, weather }) => {
       const date = new Date(dt_txt);
       const { description, icon } = weather[0];
 

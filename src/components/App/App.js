@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import withCityInputHandling from '../withCityInputHandling';
 import Home from '../Home';
 import Forecast from '../Forecast';
 import Button from '../Button';
@@ -18,7 +19,7 @@ export default function App() {
 
                <Switch>
                   <Route exact path="/" render={() => {}} />
-                  <Route component={CityForm} />
+                  <Route component={withCityInputHandling(CityForm)} />
                </Switch>
             </header>
             <Switch>
@@ -31,37 +32,18 @@ export default function App() {
    );
 }
 
-class CityForm extends React.Component {
-   state = {
-      city: '',
-   };
-
-   static propTypes = {
-      history: PropTypes.object.isRequired,
-   };
-
-   handleInputChange = event => {
-      const city = event.target.value;
-      this.setState({ city });
-   };
-
-   handleClick = () => {
-      const { history } = this.props;
-      const { city } = this.state;
-      history.push({
-         pathname: '/forecast',
-         search: `?city=${city}`,
-      });
-   };
-
-   render() {
-      return (
-         <div className={css['header-form']}>
-            <Input variant="small" onChange={this.handleInputChange} />
-            <Button type="button" onClick={this.handleClick}>
-               Get Weather
-            </Button>
-         </div>
-      );
-   }
+function CityForm({ handleChangeCity, handleClick }) {
+   return (
+      <div className={css['header-form']}>
+         <Input variant="small" onChange={handleChangeCity} />
+         <Button type="button" onClick={handleClick}>
+            Get Weather
+         </Button>
+      </div>
+   );
 }
+
+CityForm.propTypes = {
+   handleChangeCity: PropTypes.func.isRequired,
+   handleClick: PropTypes.func.isRequired,
+};

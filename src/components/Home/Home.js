@@ -1,45 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import withCityInputHandling from '../withCityInputHandling';
 import Button from '../Button';
 import Input from '../Input';
 import css from './Home.module.scss';
 
-export default class Home extends React.Component {
-   state = {
-      city: '',
-   };
+export default function Home({ history }) {
+   const CityFormHome = withCityInputHandling(CityForm);
 
-   static propTypes = {
-      history: PropTypes.object.isRequired,
-   };
-
-   handleClick = () => {
-      const { history } = this.props;
-      const { city } = this.state;
-      history.push({
-         pathname: '/forecast',
-         search: `?city=${city}`,
-      });
-   };
-
-   handleChangeCity = event => {
-      const city = event.target.value;
-      this.setState({ city });
-   };
-
-   render() {
-      return (
-         <div className={css.home}>
-            <h2 className={css.title}>Enter a City</h2>
-            <Input
-               className={css['home-input']}
-               variant="big"
-               onChange={this.handleChangeCity}
-            />
-            <Button type="button" variant="big" onClick={this.handleClick}>
-               Get Weather
-            </Button>
-         </div>
-      );
-   }
+   return (
+      <div className={css.home}>
+         <h2 className={css.title}>Enter a City</h2>
+         <CityFormHome history={history} />
+      </div>
+   );
 }
+
+Home.propTypes = {
+   history: PropTypes.object.isRequired,
+};
+
+function CityForm({ handleChangeCity, handleClick }) {
+   return (
+      <>
+         <Input
+            className={css['home-input']}
+            variant="big"
+            onChange={handleChangeCity}
+         />
+         <Button type="button" variant="big" onClick={handleClick}>
+            Get Weather
+         </Button>
+      </>
+   );
+}
+
+CityForm.propTypes = {
+   handleChangeCity: PropTypes.func.isRequired,
+   handleClick: PropTypes.func.isRequired,
+};
